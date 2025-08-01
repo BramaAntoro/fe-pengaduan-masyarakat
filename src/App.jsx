@@ -3,6 +3,7 @@ import { Login } from "./pages/auth/Login"
 import { Register } from "./pages/auth/Register"
 import { Dashboard } from "./pages/Dashboard"
 import { Logout } from "./pages/auth/Logout"
+import { Me } from "./pages/auth/Me"
 
 
 
@@ -13,6 +14,7 @@ function App() {
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
       <Route path="/logout" element={<Logout />} />
+      <Route path="/me" element={<Me />} />
       <Route path="/" element={<Dashboard />} />
     </Routes>
   )

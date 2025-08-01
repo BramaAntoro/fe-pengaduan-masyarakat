@@ -18,6 +18,8 @@ export const Dashboard = () => {
         <div>
             <h1>Dashboard</h1>
             <Link to="/logout">Logout</Link>
+            <hr />
+            <Link to="/me">Profile</Link>
         </div>
     )
 }

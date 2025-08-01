@@ -2,7 +2,7 @@ import { ApiService } from "../../../utils/ApiService"
 import { config } from "../../../utils/config";
 
 const logoutAction = (token) => (dispatch) => {
-    ApiService().post('/api/logout', {}, config(token))
+    ApiService().post('/api/logout', config(token))
         .then((response) => {
             localStorage.removeItem("token");
             dispatch({
