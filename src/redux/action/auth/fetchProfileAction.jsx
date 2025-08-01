@@ -1,23 +1,22 @@
 import { ApiService } from "../../../utils/ApiService"
+import { config } from "../../../utils/config"
 
-const loginAction = (data) => (dispatch) => {
-    dispatch({ type: "AUTH_LOGIN_INIT" });
+const fetchProfileAction = (token) => (dispatch) => {
+    dispatch({ type: "AUTH_PROFILE_INIT" });
 
-    ApiService().post('/api/login', data)
+    ApiService().get('/api/me', config(token))
         .then((response) => {
             dispatch({
-                type: "AUTH_LOGIN_SUCCESS",
+                type: "AUTH_PROFILE_SUCCESS",
                 payload: {
                     message: response.data.message,
-                    token: response.data.data.token,
-                    user: response.data.data.user
+                    data: response.data.data
                 }
             })
-            window.location.href = '/'
-        }).
-        catch((error) => {
+        })
+        .catch((error) => {
             dispatch({
-                type: "AUTH_LOGIN_FAILED",
+                type: "AUTH_PROFILE_FAILED",
                 payload: {
                     message: error?.response?.data?.message,
                     error: error?.response?.data?.error
@@ -26,4 +25,4 @@ const loginAction = (data) => (dispatch) => {
         })
 }
 
-export default loginAction
+export default fetchProfileAction
