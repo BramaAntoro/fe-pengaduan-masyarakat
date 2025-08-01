@@ -1,4 +1,4 @@
-export const Header = ({onToggleSidebar}) => {
+export const Header = ({onToggleSidebar, name}) => {
     return (
         <header className="flex justify-between items-center p-4 bg-white shadow md:pl-72">
             <div className="flex items-center space-x-4">
@@ -7,7 +7,7 @@ export const Header = ({onToggleSidebar}) => {
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
                     </svg>
                 </button>
-                <span className="text-2xl font-bold text-blue-600">TickTrack</span>
+                <span className="text-2xl font-bold text-blue-600">{name}</span>
             </div>
             <div className="flex items-center space-x-4">
                 <div className="relative">

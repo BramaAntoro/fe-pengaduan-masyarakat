@@ -4,7 +4,8 @@ const init = {
     data: [],
     message: "",
     error: null,
-    meta: {}
+    meta: {},
+    statistics: null
 }
 const ticketReducer = (state = init, action) => {
     switch (action?.type) {
@@ -19,6 +20,20 @@ const ticketReducer = (state = init, action) => {
                 meta: action.payload.meta
             }
         case "GET_TICKET_FAILED":
+            return {
+                ...state,
+                loading: false,
+                message: action?.payload?.message,
+                error: action?.payload?.error
+            }
+        case "GET_STATISTICS_SUCCESS":
+            return {
+                ...state,
+                loading: false,
+                message: action.payload.message,
+                statistics: action.payload.data
+            }
+        case "GET_STATISTICS_FAILED":
             return {
                 ...state,
                 loading: false,
