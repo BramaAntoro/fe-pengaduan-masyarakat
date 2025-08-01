@@ -10,7 +10,7 @@ const logoutReducer = (state = init, action) => {
     switch (action?.type) {
         case "AUTH_LOGOUT_INIT":
             return init
-        case "AUTH_LOGOUT_SUCCESS": 
+        case "AUTH_LOGOUT_SUCCESS":
             return {
                 ...state,
                 token: null,

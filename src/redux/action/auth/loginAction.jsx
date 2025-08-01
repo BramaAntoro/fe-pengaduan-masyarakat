@@ -5,6 +5,7 @@ const loginAction = (data) => (dispatch) => {
 
     ApiService().post('/api/login', data)
         .then((response) => {
+            localStorage.setItem("token", response.data.data.token);
             dispatch({
                 type: "AUTH_LOGIN_SUCCESS",
                 payload: {

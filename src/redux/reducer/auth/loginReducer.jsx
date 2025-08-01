@@ -11,7 +11,6 @@ const loginReducer = (state = init, action) => {
         case "AUTH_LOGIN_INIT":
             return init
         case "AUTH_LOGIN_SUCCESS":
-            localStorage.setItem("token", action.payload.token);
             return {
                 ...state,
                 loading: false,

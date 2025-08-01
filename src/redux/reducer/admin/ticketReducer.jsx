@@ -1,0 +1,33 @@
+const init = {
+    loading: true,
+    token: null,
+    data: [],
+    message: "",
+    error: null,
+    meta: {}
+}
+const ticketReducer = (state = init, action) => {
+    switch (action?.type) {
+        case "TICKET_INIT":
+            return state
+        case "GET_TICKET_SUCCESS":
+            return {
+                ...state,
+                loading: false,
+                message: action.payload.message,
+                data: action.payload.data,
+                meta: action.payload.meta
+            }
+        case "GET_TICKET_FAILED":
+            return {
+                ...state,
+                loading: false,
+                message: action?.payload?.message,
+                error: action?.payload?.error
+            }
+        default:
+            return state
+    }
+}
+
+export default ticketReducer

@@ -15,9 +15,7 @@ export const DashboardContent = () => {
                 <div className="bg-white p-4 rounded shadow">
                     <h2 className="text-lg font-semibold mb-4">Tiket Terbaru</h2>
                     <ul>
-                        <TicketItem title="Gangguan jaringan wifi" time="10 minutes ago" />
-                        <TicketItem title="Modem wifi terbakar" time="3 days ago" />
-                        <TicketItem title="Kabel wifi terputus" time="3 days ago" />
+                        <TicketItem />
                     </ul>
                 </div>
 

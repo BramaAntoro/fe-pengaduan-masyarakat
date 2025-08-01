@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom"
+
 export const Sidebar = ({ isOpen, onClose }) => {
     return (
         <>
@@ -10,7 +12,9 @@ export const Sidebar = ({ isOpen, onClose }) => {
                     <ul className="space-y-2">
                         <li className="text-blue-500 font-medium bg-blue-100 p-2 rounded">Dashboard</li>
                         <li className="text-gray-700 hover:bg-gray-100 p-2 rounded cursor-pointer">Tiket</li>
-                        <li className="text-gray-700 hover:bg-gray-100 p-2 rounded cursor-pointer">Logout</li>
+                        <li className="text-gray-700 hover:bg-gray-100 p-2 rounded cursor-pointer">
+                            <Link to={'/logout'}>Logout</Link>
+                        </li>
                     </ul>
                 </div>
             </aside>
