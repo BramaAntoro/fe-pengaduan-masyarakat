@@ -1,6 +1,6 @@
 const init = {
-    loading: true,
-    token: null,
+    loading: false,
+    token: localStorage.getItem("token") || null,
     user: null,
     message: "",
     error: null
@@ -11,6 +11,7 @@ const loginReducer = (state = init, action) => {
         case "AUTH_INIT":
             return init
         case "AUTH_LOGIN_SUCCESS":
+            localStorage.setItem("token", action.payload.token);
             return {
                 ...state,
                 loading: false,
@@ -23,7 +24,10 @@ const loginReducer = (state = init, action) => {
             return {
                 ...state,
                 loading: false,
-                error: action.payload.error,
+                error: {
+                    message: action.payload.message,
+                    detail: action.payload.error
+                },
                 message: ""
             }
         default:

@@ -20,7 +20,7 @@ const loginAction = (data) => (dispatch) => {
                 type: "AUTH_LOGIN_FAILED",
                 payload: {
                     message: error?.response?.data?.message,
-                    error: error?.response?.data?.message
+                    error: error?.response?.data?.error
                 }
             })
         })
