@@ -1,7 +1,7 @@
 import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { useForm } from 'react-hook-form';
-import loginAction from '../redux/action/auth/loginAction';
+import loginAction from '../../redux/action/auth/loginAction';
 
 export const Login = () => {
     const { register, handleSubmit } = useForm();
@@ -19,7 +19,6 @@ export const Login = () => {
                 <h1 className="text-3xl font-bold text-center mb-4">Sign in</h1>
 
                 <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
-                    {/* Email Field */}
                     <div>
                         <label htmlFor="email" className="block text-sm font-medium mb-1">
                             Email
@@ -35,7 +34,6 @@ export const Login = () => {
                         />
                     </div>
 
-                    {/* Password Field */}
                     <div>
                         <label htmlFor="password" className="block text-sm font-medium mb-1">
                             Password

@@ -1,6 +1,6 @@
 import { useEffect } from "react"
 import { useSelector } from "react-redux"
-import { useNavigate } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 
 export const Dashboard = () => {
 
@@ -15,6 +15,9 @@ export const Dashboard = () => {
 
 
     return (
-        <div>Dashboard</div>
+        <div>
+            <h1>Dashboard</h1>
+            <Link to="/logout">Logout</Link>
+        </div>
     )
 }
