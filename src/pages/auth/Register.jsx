@@ -1,30 +1,47 @@
+import { Link, useNavigate } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { useForm } from 'react-hook-form';
+import registerAction from '../../redux/action/auth/registerAction';
+
 export const Register = () => {
+
+    const navigate = useNavigate();
+
+    const { token } = useSelector((state) => state.login)
+
+    if (token) {
+        navigate('/')
+    }
+
+    const { register, handleSubmit } = useForm();
+    const registerState = useSelector(state => state.register);
+    const dispatch = useDispatch();
+
+    const onSubmit = (value) => {
+        dispatch(registerAction(value));
+    };
+
     return (
         <div className="min-h-screen flex items-center justify-center bg-gray-100 px-4">
-            <div className="w-full max-w-sm bg-white rounded-lg shadow-md p-6">
-                <div className="flex flex-col items-center mb-6">
-                    <div className="flex items-center justify-center h-16 w-16 rounded-full bg-blue-600 text-white mb-4">
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            className="h-8 w-8"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            stroke="currentColor"
-                            strokeWidth={2}
-                        >
-                            <path
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                d="M9 17v-2h6v2a2 2 0 002 2h1a2 2 0 002-2v-2a2 2 0 012-2v-2a2 2 0 01-2-2V9a2 2 0 00-2-2h-1a2 2 0 00-2 2v2H9V9a2 2 0 00-2-2H6a2 2 0 00-2 2v2a2 2 0 01-2 2v2a2 2 0 012 2v2a2 2 0 002 2h1a2 2 0 002-2z"
-                            />
-                        </svg>
+            <div className="w-full max-w-md bg-white rounded-lg shadow-lg p-6">
+                <h1 className="text-3xl font-bold text-center mb-4">Sign Up</h1>
+
+                <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
+                    <div>
+                        <label htmlFor="email" className="block text-sm font-medium mb-1">
+                            Email
+                        </label>
+                        <input
+                            id="email"
+                            type="text"
+                            placeholder="Your email"
+                            autoComplete="email"
+                            required
+                            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                            {...register('email')}
+                        />
                     </div>
-                    <h1 className="text-2xl font-bold mb-1">Create an Account</h1>
-                    <p className="text-gray-500 text-sm text-center">
-                        Join TickTrack Pro to manage your support tickets.
-                    </p>
-                </div>
-                <form className="space-y-4">
+
                     <div>
                         <label htmlFor="name" className="block text-sm font-medium mb-1">
                             Name
@@ -32,21 +49,14 @@ export const Register = () => {
                         <input
                             id="name"
                             type="text"
-                            placeholder="John Doe"
+                            placeholder="Your name"
+                            autoComplete="name"
+                            required
                             className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                            {...register('name')}
                         />
                     </div>
-                    <div>
-                        <label htmlFor="email" className="block text-sm font-medium mb-1">
-                            Email
-                        </label>
-                        <input
-                            id="email"
-                            type="email"
-                            placeholder="user@example.com"
-                            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                        />
-                    </div>
+
                     <div>
                         <label htmlFor="password" className="block text-sm font-medium mb-1">
                             Password
@@ -54,21 +64,34 @@ export const Register = () => {
                         <input
                             id="password"
                             type="password"
-                            placeholder="••••••••"
+                            placeholder="Your password"
+                            autoComplete="current-password"
+                            required
                             className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                            {...register('password')}
                         />
                     </div>
+
                     <button
                         type="submit"
-                        className="w-full bg-blue-600 text-white py-2 rounded-md hover:bg-blue-700 transition"
+                        disabled={registerState.loading}
+                        className={`w-full py-2 rounded-md transition 
+                            ${registerState.loading ? 'bg-blue-300 cursor-not-allowed' : 'bg-blue-600 hover:bg-blue-700 text-white'}`}
                     >
-                        Create Account
+                        {registerState.loading ? 'Signing in...' : 'Sign in'}
                     </button>
-                    <div className="mt-4 text-center text-sm text-gray-600">
-                        Already have an account?
+
+                    <div className="text-center text-sm text-gray-600 mt-2">
+                        have an account? <Link to="/register" className="text-blue-600 hover:underline">Register</Link>
                     </div>
+
+                    {Object.values(registerState.error || {}).map((errArray, idx) => (
+                        <p key={idx} className="text-sm text-red-500 text-center mt-2">
+                            {Array.isArray(errArray) ? errArray[0] : errArray}
+                        </p>
+                    ))}
                 </form>
             </div>
         </div>
-    )
-}
+    );
+};

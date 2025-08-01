@@ -4,7 +4,7 @@ import { useForm } from 'react-hook-form';
 import loginAction from '../../redux/action/auth/loginAction';
 
 export const Login = () => {
-    const { register, handleSubmit } = useForm();
+    const { login, handleSubmit } = useForm();
     const loginState = useSelector(state => state.login);
     const dispatch = useDispatch();
     const navigate = useNavigate();
@@ -30,7 +30,7 @@ export const Login = () => {
                             autoComplete="email"
                             required
                             className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                            {...register('email')}
+                            {...login('email')}
                         />
                     </div>
 
@@ -45,7 +45,7 @@ export const Login = () => {
                             autoComplete="current-password"
                             required
                             className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                            {...register('password')}
+                            {...login('password')}
                         />
                     </div>
 

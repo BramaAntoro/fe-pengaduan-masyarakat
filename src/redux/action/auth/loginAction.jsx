@@ -1,7 +1,7 @@
 import { ApiService } from "../../../utils/ApiService"
 
 const loginAction = (data) => (dispatch) => {
-    dispatch({ type: "AUTH_INIT" });
+    dispatch({ type: "AUTH_LOGIN_INIT" });
 
     ApiService().post('/api/login', data)
         .then((response) => {
