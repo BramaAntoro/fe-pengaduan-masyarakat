@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getStatistics } from "../redux/action/admin/ticketAction";
+import { getStatistics } from "../redux/action/ticket/ticketAction";
 import { Cell, Pie, PieChart, ResponsiveContainer } from "recharts";
 
 const COLORS = ['#3B82F6', '#F59E0B', '#10B981', '#EF4444'];

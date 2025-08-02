@@ -80,3 +80,36 @@ export const getTicketDetail = (token, code) => (dispatch) => {
             });
         });
 };
+
+export const replyTicket = (token, code, content, status = null) => (dispatch) => {
+    dispatch({ type: "TICKET_INIT" });
+
+    const payload = { content };
+    if (status) {
+        payload.status = status;
+    }
+
+    return ApiService()
+        .patch(`/api/ticket-reply/${code}`, payload, config(token))
+        .then((response) => {
+            dispatch({
+                type: "REPLY_TICKET_SUCCESS",
+                payload: {
+                    message: response.data.message,
+                    reply: response.data.reply,
+                    ticket: response.data.ticket,
+                },
+            });
+
+            dispatch(getTicketDetail(token, code));
+        })
+        .catch((error) => {
+            dispatch({
+                type: "REPLY_TICKET_FAILED",
+                payload: {
+                    message: error?.response?.data?.message,
+                    error: error?.response?.data?.error,
+                },
+            });
+        });
+};

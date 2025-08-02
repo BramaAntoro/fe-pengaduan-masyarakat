@@ -57,6 +57,19 @@ const ticketReducer = (state = init, action) => {
                 message: action?.payload?.message,
                 error: action?.payload?.error
             };
+        case "REPLY_TICKET_SUCCESS":
+            return {
+                ...state,
+                loading: false,
+                message: action.payload.message
+            };
+        case "REPLY_TICKET_FAILED":
+            return {
+                ...state,
+                loading: false,
+                message: action.payload.message,
+                error: action.payload.error
+            };
         default:
             return state
     }

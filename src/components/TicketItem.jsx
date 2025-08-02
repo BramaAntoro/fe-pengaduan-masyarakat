@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getTicket } from "../redux/action/admin/ticketAction";
+import { getTicket } from "../redux/action/ticket/ticketAction";
 
 export const TicketItem = () => {
     const token = useSelector((state) => state.login.token);

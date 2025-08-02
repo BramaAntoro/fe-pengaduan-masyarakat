@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getStatistics } from "../redux/action/admin/ticketAction";
+import { getStatistics } from "../redux/action/ticket/ticketAction";
 
 export const Card = ({ title }) => {
     const token = useSelector((state) => state.login.token);

@@ -5,6 +5,7 @@ const logoutAction = (token) => (dispatch) => {
     ApiService().post('/api/logout', {}, config(token))
         .then((response) => {
             localStorage.removeItem("token");
+            localStorage.removeItem("user");
             dispatch({
                 type: "AUTH_LOGOUT_SUCCESS",
                 payload: {

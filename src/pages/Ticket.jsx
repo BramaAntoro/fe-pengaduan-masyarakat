@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { getTicket } from "../redux/action/admin/ticketAction";
+import { getTicket } from "../redux/action/ticket/ticketAction";
 import { Sidebar } from "../components/Sidebar";
 import { Header } from "../components/Header";
 import { TicketContent } from "../components/ticket/TicketComponent";

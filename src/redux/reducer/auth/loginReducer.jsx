@@ -1,7 +1,7 @@
 const init = {
     loading: false,
     token: localStorage.getItem("token") || null,
-    user: null,
+    user: localStorage.getItem("user") ? JSON.parse(localStorage.getItem("user")) : null,
     message: "",
     error: null
 }
