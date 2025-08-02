@@ -1,6 +1,6 @@
-import { Card } from './Card'
-import { DistribusiStatus } from './DistribusiStatus'
-import { TicketItem } from './TicketItem'
+import { Card } from '../Card'
+import { DistribusiStatus } from '../DistribusiStatus'
+import { TicketItem } from '../TicketItem'
 
 export const DashboardContent = () => {
     return (
@@ -9,7 +9,6 @@ export const DashboardContent = () => {
                 <Card title="Total Tiket"  />
                 <Card title="Tiket Aktif" />
                 <Card title="Tiket Selesai"  />
-                <Card title="Rata-rata Waktu Selesai"  />
             </div>
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
