@@ -1,17 +1,16 @@
 const init = {
     loading: false,
     token: localStorage.getItem("token") || null,
-    user: null,
+    user: localStorage.getItem("user") ? JSON.parse(localStorage.getItem("user")) : null,
     message: "",
     error: null
 }
 
 const loginReducer = (state = init, action) => {
     switch (action?.type) {
-        case "AUTH_INIT":
+        case "AUTH_LOGIN_INIT":
             return init
         case "AUTH_LOGIN_SUCCESS":
-            localStorage.setItem("token", action.payload.token);
             return {
                 ...state,
                 loading: false,
