@@ -1,4 +1,5 @@
 import { Card } from './Card'
+import { DistribusiStatus } from './DistribusiStatus'
 import { TicketItem } from './TicketItem'
 
 export const DashboardContent = () => {
@@ -19,12 +20,7 @@ export const DashboardContent = () => {
                     </ul>
                 </div>
 
-                <div className="bg-white p-4 rounded shadow">
-                    <h2 className="text-lg font-semibold mb-4">Distribusi Status</h2>
-                    <div className="w-full h-40 flex justify-center items-center">
-                        <span>[Pie Chart Placeholder]</span>
-                    </div>
-                </div>
+                <DistribusiStatus/>
             </div>
         </main>
     )

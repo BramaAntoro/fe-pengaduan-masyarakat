@@ -1,5 +1,5 @@
 const init = {
-    loading: false,
+    loading: true,
     token: localStorage.getItem("token"),
     user: null,
     message: "",
@@ -13,12 +13,14 @@ const logoutReducer = (state = init, action) => {
         case "AUTH_LOGOUT_SUCCESS":
             return {
                 ...state,
+                loading: false,
                 token: null,
                 message: action.payload.message
             }
         case "AUTH_LOGOUT_FAILED":
             return {
                 ...state,
+                loading: false,
                 message: action.payload.message,
                 error: action.payload.error
             }

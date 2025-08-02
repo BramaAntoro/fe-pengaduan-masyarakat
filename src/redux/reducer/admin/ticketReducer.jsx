@@ -7,6 +7,8 @@ const init = {
     meta: {},
     statistics: null
 }
+
+
 const ticketReducer = (state = init, action) => {
     switch (action?.type) {
         case "TICKET_INIT":
