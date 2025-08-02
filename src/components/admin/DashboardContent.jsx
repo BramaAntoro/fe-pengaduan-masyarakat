@@ -1,6 +1,6 @@
-import { Card } from './Card'
-import { DistribusiStatus } from './DistribusiStatus'
-import { TicketItem } from './TicketItem'
+import { Card } from '../Card'
+import { DistribusiStatus } from '../DistribusiStatus'
+import { TicketItem } from '../TicketItem'
 
 export const DashboardContent = () => {
     return (

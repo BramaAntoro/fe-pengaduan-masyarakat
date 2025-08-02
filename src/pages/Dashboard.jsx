@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { Header } from "../components/Header";
 import { Sidebar } from "../components/Sidebar";
-import { DashboardContent } from "../components/DashboardContent";
+import { DashboardContent } from "../components/admin/DashboardContent";
 
 export const Dashboard = () => {
     const { token } = useSelector((state) => state.login);

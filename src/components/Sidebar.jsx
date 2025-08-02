@@ -11,7 +11,9 @@ export const Sidebar = ({ isOpen, onClose }) => {
                     <div className="font-bold text-blue-600 text-xl mb-6">TickTrack</div>
                     <ul className="space-y-2">
                         <li className="text-blue-500 font-medium bg-blue-100 p-2 rounded">Dashboard</li>
-                        <li className="text-gray-700 hover:bg-gray-100 p-2 rounded cursor-pointer">Tiket</li>
+                        <Link to={'/ticket'}>
+                            <li className="text-gray-700 hover:bg-gray-100 p-2 rounded cursor-pointer">Tiket</li>
+                        </Link>
                         <li className="text-gray-700 hover:bg-gray-100 p-2 rounded cursor-pointer">
                             <Link to={'/logout'}>Logout</Link>
                         </li>
