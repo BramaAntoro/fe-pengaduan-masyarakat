@@ -10,7 +10,9 @@ export const Sidebar = ({ isOpen, onClose }) => {
                 <div className="p-4">
                     <div className="font-bold text-blue-600 text-xl mb-6">TickTrack</div>
                     <ul className="space-y-2">
-                        <li className="text-blue-500 font-medium bg-blue-100 p-2 rounded">Dashboard</li>
+                        <Link to={'/'}>
+                            <li className="text-gray-700 hover:bg-gray-100 p-2 rounded cursor-pointer">Dashboard</li>
+                        </Link>
                         <Link to={'/ticket'}>
                             <li className="text-gray-700 hover:bg-gray-100 p-2 rounded cursor-pointer">Tiket</li>
                         </Link>

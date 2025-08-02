@@ -5,6 +5,7 @@ import { Dashboard } from "./pages/Dashboard"
 import { Logout } from "./pages/auth/Logout"
 import { Me } from "./pages/auth/Me"
 import { Ticket } from "./pages/Ticket"
+import { TicketDetail } from "./components/ticket/TicketDetail"
 
 
 
@@ -17,6 +18,7 @@ function App() {
       <Route path="/logout" element={<Logout />} />
       <Route path="/me" element={<Me />} />
       <Route path="/ticket" element={<Ticket />} />
+      <Route path="/ticket/:code" element={<TicketDetail />} />
       <Route path="/" element={<Dashboard />} />
     </Routes>
   )

@@ -56,3 +56,27 @@ export const getStatistics = (token) => (dispatch) => {
             })
         })
 }
+
+export const getTicketDetail = (token, code) => (dispatch) => {
+    dispatch({ type: "TICKET_INIT" });
+
+    ApiService().get(`/api/ticket/${code}`, config(token))
+        .then((response) => {
+            dispatch({
+                type: "GET_TICKET_DETAIL_SUCCESS",
+                payload: {
+                    message: response.data.message,
+                    detail: response.data.data
+                }
+            });
+        })
+        .catch((error) => {
+            dispatch({
+                type: "GET_TICKET_DETAIL_FAILED",
+                payload: {
+                    message: error?.response?.data?.message,
+                    error: error?.response?.data?.error
+                }
+            });
+        });
+};

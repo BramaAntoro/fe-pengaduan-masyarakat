@@ -29,9 +29,6 @@ export const Card = ({ title }) => {
             case "Tiket Selesai":
                 displayValue = statistics.resolved_tickets;
                 break;
-            case "Rata-rata Waktu Selesai":
-                displayValue = `${statistics.avg_resolution_time} jam`;
-                break;
             default:
                 displayValue = "-";
         }

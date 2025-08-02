@@ -2,6 +2,7 @@ const init = {
     loading: true,
     token: null,
     data: [],
+    ticketDetail: null,
     message: "",
     error: null,
     meta: {},
@@ -42,6 +43,20 @@ const ticketReducer = (state = init, action) => {
                 message: action?.payload?.message,
                 error: action?.payload?.error
             }
+        case "GET_TICKET_DETAIL_SUCCESS":
+            return {
+                ...state,
+                loading: false,
+                message: action.payload.message,
+                ticketDetail: action.payload.detail
+            };
+        case "GET_TICKET_DETAIL_FAILED":
+            return {
+                ...state,
+                loading: false,
+                message: action?.payload?.message,
+                error: action?.payload?.error
+            };
         default:
             return state
     }
