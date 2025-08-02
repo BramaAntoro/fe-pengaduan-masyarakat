@@ -113,3 +113,34 @@ export const replyTicket = (token, code, content, status = null) => (dispatch) =
             });
         });
 };
+
+export const createTicket = (token, title, description, priority) => (dispatch) => {
+    dispatch({ type: "TICKET_INIT" });
+
+    const payload = {
+        title,
+        description,
+        priority
+    };
+
+    return ApiService()
+        .post('/api/ticket', payload, config(token))
+        .then((response) => {
+            dispatch({
+                type: "CREATE_TICKET_SUCCESS",
+                payload: {
+                    message: response.data.message,
+                    data: response.data.data
+                }
+            });
+        })
+        .catch((error) => {
+            dispatch({
+                type: "CREATE_TICKET_FAILED",
+                payload: {
+                    message: error?.response?.data?.message,
+                    error: error?.response?.data?.error
+                }
+            });
+        });
+};

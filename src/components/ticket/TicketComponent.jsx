@@ -1,3 +1,4 @@
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
 export const TicketContent = ({
@@ -13,6 +14,10 @@ export const TicketContent = ({
     page,
     setPage
 }) => {
+
+    const user = useSelector((state) => state.login.user)
+    const role = user?.role
+    
     return (
         <div className="p-6">
             <div className="flex flex-wrap gap-4 mb-4">
@@ -42,6 +47,13 @@ export const TicketContent = ({
                     <option value="medium">Medium</option>
                     <option value="low">Low</option>
                 </select>
+                {role === 'user' && (
+                    <Link to="/create-ticket">
+                        <button className="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded text-sm mt-2 md:mt-0">
+                            + Buat Tiket
+                        </button>
+                    </Link>
+                )}
             </div>
 
             {loading ? (
