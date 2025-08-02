@@ -1,5 +1,5 @@
 const init = {
-    loading: false,
+    loading: true,
     token: null,
     user: null,
     message: "",
@@ -13,6 +13,7 @@ const registerReducer = (state = init, action) => {
             localStorage.setItem("token", action.payload.token);
             return {
                 ...state,
+                loading: false,
                 message: action.payload.message,
                 token: action.payload.token,
                 user: action.payload.user
@@ -20,6 +21,7 @@ const registerReducer = (state = init, action) => {
         case "AUTH_REGISTER_FAILED":
             return {
                 ...state,
+                loading: false,
                 message: action.payload.message,
                 error: action.payload.error
             }
