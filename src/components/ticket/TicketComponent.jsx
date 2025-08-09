@@ -17,7 +17,7 @@ export const TicketContent = ({
 
     const user = useSelector((state) => state.login.user)
     const role = user?.role
-    
+
     return (
         <div className="p-6">
             <div className="flex flex-wrap gap-4 mb-4">
@@ -69,6 +69,7 @@ export const TicketContent = ({
                                 <th className="p-3">STATUS</th>
                                 <th className="p-3">PRIORITAS</th>
                                 <th className="p-3">TANGGAL</th>
+                                <th className="p-3">GAMBAR</th>
                                 <th className="p-3">AKSI</th>
                             </tr>
                         </thead>
@@ -100,6 +101,17 @@ export const TicketContent = ({
                                         </span>
                                     </td>
                                     <td className="p-3 text-sm">{ticket.created_at}</td>
+                                    <td className="p-3">
+                                        {ticket.image ? (
+                                            <img
+                                                src={ticket.image}
+                                                alt="Ticket"
+                                                className="w-12 h-12 object-cover rounded"
+                                            />
+                                        ) : (
+                                            <span className="text-gray-400 italic">Tidak ada</span>
+                                        )}
+                                    </td>
                                     <td className="p-3">
                                         <Link to={`/ticket/${ticket.code}`}>
                                             <button className="flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-4 py-1.5 rounded text-sm">

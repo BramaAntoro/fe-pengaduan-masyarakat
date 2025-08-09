@@ -82,7 +82,7 @@ export const Register = () => {
                     </button>
 
                     <div className="text-center text-sm text-gray-600 mt-2">
-                        have an account? <Link to="/register" className="text-blue-600 hover:underline">Register</Link>
+                        have an account? <Link to="/register" className="text-blue-600 hover:underline">Login</Link>
                     </div>
 
                     {Object.values(registerState.error || {}).map((errArray, idx) => (

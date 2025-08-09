@@ -1,5 +1,5 @@
 const init = {
-    loading: true,
+    loading: false,
     token: null,
     user: null,
     message: "",

@@ -114,13 +114,14 @@ export const replyTicket = (token, code, content, status = null) => (dispatch) =
         });
 };
 
-export const createTicket = (token, title, description, priority) => (dispatch) => {
+export const createTicket = (token, title, description, priority, image) => (dispatch) => {
     dispatch({ type: "TICKET_INIT" });
 
     const payload = {
         title,
         description,
-        priority
+        priority,
+        image
     };
 
     return ApiService()

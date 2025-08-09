@@ -12,6 +12,7 @@ export const CreateTicket = () => {
     const [title, setTitle] = useState("");
     const [description, setDescription] = useState("");
     const [priority, setPriority] = useState("medium");
+    const [image, setImage] = useState(null);
     const [isSubmitting, setIsSubmitting] = useState(false);
 
     const handleSubmit = (e) => {
@@ -29,7 +30,7 @@ export const CreateTicket = () => {
             setDescription("");
             setPriority("medium");
 
-            alert("Tiket berhasil dibuat!");
+            // alert("Tiket berhasil dibuat!"); 
             navigate("/ticket");
         }).catch(() => {
             setIsSubmitting(false);
@@ -73,6 +74,15 @@ export const CreateTicket = () => {
                         <option value="medium">Medium</option>
                         <option value="low">Low</option>
                     </select>
+                </div>
+                <div>
+                    <label className="block text-sm font-medium mb-1">Gambar (Opsional)</label>
+                    <input
+                        type="file"
+                        accept="image/*"
+                        onChange={(e) => setImage(e.target.files[0])}
+                        className="w-full border px-3 py-2 rounded focus:outline-none focus:ring text-sm"
+                    />
                 </div>
                 <div className="flex gap-2">
                     <button

@@ -34,7 +34,7 @@ export const Ticket = () => {
         <div className="flex h-screen bg-gray-100">
             <Sidebar isOpen={sidebarOpen} onClose={() => setSidebarOpen(false)} />
             <div className="flex flex-col flex-1">
-                <Header onToggleSidebar={() => setSidebarOpen(!sidebarOpen)} name="dashboard" />
+                <Header onToggleSidebar={() => setSidebarOpen(!sidebarOpen)} name="ticket" />
                 <TicketContent
                     tickets={tickets}
                     loading={loading}
