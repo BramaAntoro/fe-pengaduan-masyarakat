@@ -50,7 +50,7 @@ export const TicketContent = ({
                 {role === 'user' && (
                     <Link to="/create-ticket">
                         <button className="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded text-sm mt-2 md:mt-0">
-                            + Buat Tiket
+                            + Buat pengaduan
                         </button>
                     </Link>
                 )}
@@ -63,7 +63,7 @@ export const TicketContent = ({
                     <table className="min-w-full table-auto border-collapse">
                         <thead>
                             <tr className="bg-gray-100 text-left text-sm font-semibold text-gray-600">
-                                <th className="p-3">ID TIKET</th>
+                                <th className="p-3">ID PENGADUAN</th>
                                 <th className="p-3">JUDUL</th>
                                 <th className="p-3">PELAPOR</th>
                                 <th className="p-3">STATUS</th>

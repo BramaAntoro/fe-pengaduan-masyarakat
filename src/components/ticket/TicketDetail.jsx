@@ -54,7 +54,7 @@ export const TicketDetail = () => {
                 onClick={() => navigate('/ticket')}
                 className="text-blue-600 hover:underline mb-4 inline-block"
             >
-                ← Kembali ke Daftar Tiket
+                ← Kembali ke Daftar Pengaduan
             </button>
 
             <div className="bg-white shadow rounded p-4 mb-6">

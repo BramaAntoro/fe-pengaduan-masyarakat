@@ -39,7 +39,7 @@ export const CreateTicket = () => {
 
     return (
         <div className="max-w-2xl mx-auto p-6 bg-white shadow rounded mt-4">
-            <h1 className="text-xl font-semibold mb-4">Buat Tiket Baru</h1>
+            <h1 className="text-xl font-semibold mb-4">Buat Pengaduan Baru</h1>
             <form onSubmit={handleSubmit} className="space-y-4">
                 <div>
                     <label className="block text-sm font-medium mb-1">Judul</label>
@@ -76,7 +76,7 @@ export const CreateTicket = () => {
                     </select>
                 </div>
                 <div>
-                    <label className="block text-sm font-medium mb-1">Gambar (Opsional)</label>
+                    <label className="block text-sm font-medium mb-1">Gambar</label>
                     <input
                         type="file"
                         accept="image/*"
@@ -90,7 +90,7 @@ export const CreateTicket = () => {
                         disabled={isSubmitting}
                         className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded text-sm disabled:opacity-50"
                     >
-                        {isSubmitting ? "Membuat..." : "Buat Tiket"}
+                        {isSubmitting ? "Membuat..." : "Kirim Pengaduan"}
                     </button>
                     <button
                         type="button"
@@ -101,10 +101,6 @@ export const CreateTicket = () => {
                     </button>
                 </div>
             </form>
-
-            {/* Notifikasi */}
-            {message && <p className="mt-4 text-green-600 text-sm">{message}</p>}
-            {error && <p className="mt-4 text-red-600 text-sm">{error}</p>}
         </div>
     );
 };

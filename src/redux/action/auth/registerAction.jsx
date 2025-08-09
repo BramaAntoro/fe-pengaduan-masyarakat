@@ -5,6 +5,8 @@ const registerAction = (data) => (dispatch) => {
 
     ApiService().post('/api/register', data)
         .then((response) => {
+            localStorage.setItem("token", response.data.data.token);
+            localStorage.setItem("user", JSON.stringify(response.data.data.user));
             dispatch({
                 type: "AUTH_REGISTER_SUCCESS",
                 payload: {

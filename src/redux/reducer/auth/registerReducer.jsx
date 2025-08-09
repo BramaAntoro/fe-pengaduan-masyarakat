@@ -10,7 +10,6 @@ const registerReducer = (state = init, action) => {
         case "AUTH_REGISTER_INIT":
             return init
         case "AUTH_REGISTER_SUCCESS":
-            localStorage.setItem("token", action.payload.token);
             return {
                 ...state,
                 loading: false,

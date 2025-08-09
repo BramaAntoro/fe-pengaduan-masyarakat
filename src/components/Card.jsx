@@ -20,13 +20,13 @@ export const Card = ({ title }) => {
 
     if (statistics) {
         switch (title) {
-            case "Total Tiket":
+            case "Total Pengaduan":
                 displayValue = statistics.total_tickets;
                 break;
-            case "Tiket Aktif":
+            case "Pengaduan Aktif":
                 displayValue = statistics.active_tickets;
                 break;
-            case "Tiket Selesai":
+            case "Pengaduan Selesai":
                 displayValue = statistics.resolved_tickets;
                 break;
             default:
